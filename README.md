@@ -1,3 +1,5 @@
+Minesweeper Game. look at the [Demo here](https://n20084753.github.io/minesweeper/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
