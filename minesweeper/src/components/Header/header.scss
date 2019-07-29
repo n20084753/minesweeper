@@ -1,0 +1,23 @@
+.app-header {
+    background: #1b1c1d;
+    height: 54px;
+    line-height: 54px;
+    color: #fff;
+    padding: 0 20px;
+    display: table;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    .header-cell {
+        display: table-cell;
+        width: 25%;
+        line-height: 54px;
+        padding: 0 10px;
+        &.center {
+            text-align: center;
+        }
+        &.right {
+            text-align: right;
+        }
+    }
+}
