@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/minesweeper/static/css/main.a3bdbafc.chunk.css",
-    "main.js": "/minesweeper/static/js/main.42de07ef.chunk.js",
-    "main.js.map": "/minesweeper/static/js/main.42de07ef.chunk.js.map",
+    "main.css": "/minesweeper/static/css/main.14566e58.chunk.css",
+    "main.js": "/minesweeper/static/js/main.a440cce2.chunk.js",
+    "main.js.map": "/minesweeper/static/js/main.a440cce2.chunk.js.map",
     "runtime~main.js": "/minesweeper/static/js/runtime~main.dd26f679.js",
     "runtime~main.js.map": "/minesweeper/static/js/runtime~main.dd26f679.js.map",
     "static/js/2.9a7e649c.chunk.js": "/minesweeper/static/js/2.9a7e649c.chunk.js",
     "static/js/2.9a7e649c.chunk.js.map": "/minesweeper/static/js/2.9a7e649c.chunk.js.map",
     "index.html": "/minesweeper/index.html",
-    "precache-manifest.a16e142941abf20aaba634d31cd059e9.js": "/minesweeper/precache-manifest.a16e142941abf20aaba634d31cd059e9.js",
+    "precache-manifest.63957d670967e877beae654f093bd7de.js": "/minesweeper/precache-manifest.63957d670967e877beae654f093bd7de.js",
     "service-worker.js": "/minesweeper/service-worker.js",
-    "static/css/main.a3bdbafc.chunk.css.map": "/minesweeper/static/css/main.a3bdbafc.chunk.css.map"
+    "static/css/main.14566e58.chunk.css.map": "/minesweeper/static/css/main.14566e58.chunk.css.map"
   }
 }
