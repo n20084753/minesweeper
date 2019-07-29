@@ -1,7 +1,7 @@
 .app-header {
-    background: #1b1c1d;
-    height: 54px;
-    line-height: 54px;
+    background: var(--app-header-bg-color);
+    height: var(--app-header-height);
+    line-height: var(--app-header-height);
     color: #fff;
     padding: 0 20px;
     display: table;
@@ -11,7 +11,7 @@
     .header-cell {
         display: table-cell;
         width: 25%;
-        line-height: 54px;
+        line-height: var(--app-header-height);
         padding: 0 10px;
         &.center {
             text-align: center;
@@ -19,5 +19,15 @@
         &.right {
             text-align: right;
         }
+    }
+    select {
+        background: var(--app-header-bg-color);
+        color: white;
+        border: 1px solid white;
+        padding: 10px;
+        font-size: 16px;
+        box-sizing: content-box;
+        height: 35px;
+        line-height: 35px;        
     }
 }

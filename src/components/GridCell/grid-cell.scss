@@ -1,19 +1,24 @@
 .grid-cell {
     display: table-cell;
-    background: white;
-    color: white;
-    border: 1px solid black;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid #bdbdbd;
+    
+    line-height: var(--cell-size);
+    
     text-align: center;
+    background: var(--cell-bg-color);
+    color: white;
+    
     cursor: pointer;
+    
     &.revealed {
-        background:#ebebeb;
+        background:var(--cell-revealed-bg-color);
         color: #000;
     }
+    
     &.flagged {
-        color: red;
+        color: var(--cell-flagged-icon-color);
         cursor: not-allowed;
     }
 }

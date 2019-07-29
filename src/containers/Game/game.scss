@@ -1,28 +1,13 @@
 .game-container {
     &.ui.segment {
-        width: 780px;
+        width: var(--app-width-container);
+        padding: 0;
+        border-radius: 10px;
+        
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        padding: 0;
-        border-radius: 10px;
-        box-sizing: border-box;
-    }
-
-    .game-result {
-        text-align: center;
-        font-size: 1.15em;
-    }
-    
-    .highlight {
-        color: green;
-        font-weight: bold;
-    }
-    .footer-button {
-        text-align: center;
-        margin-top: 30px;
-        letter-spacing: 2px;
     }
 
     .grid-container {
@@ -30,7 +15,6 @@
         margin: auto;
         padding: 20px;
         border-spacing: 3px;
-
         .grid-row {
             display: table-row;
         }
@@ -38,24 +22,35 @@
 
     .result-container {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        padding: 20px;        
         left: 0%;
         top: 0%;        
+        width: 100%;
+        height: 100%;
+        
+        padding: 20px;
+        
         .game-result {
-            background: #607d8b;
             width: 250px;
             padding: 20px;
-            color: #ffeb3b;
+            border-radius: 5px;
+            
             margin: auto;
             margin-top: 75px;
-            border-radius: 5px;
+            
+            text-align: center;
+            font-size: 1.15em;
+            background: #607d8bc0;
+            color: #ffeb3b;
         }
-        .footer-button button {
-            width: 250px;
-            margin: auto;
-            padding: 20px;
+        
+        .footer-button {
+            margin-top: 20px;
+            text-align: center;
+            button {
+                width: 250px;
+                padding: 20px;
+                margin: auto;
+            }
         }
     }
 }

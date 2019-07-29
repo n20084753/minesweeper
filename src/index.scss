@@ -1,16 +1,21 @@
+// RESET SCSS
 * {
-  outline: 0;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --app-width-container: 780px;
+    --app-header-height: 54px;
+    --app-header-bg-color: #2196f3;
+    --cell-size: 35px;
+    --cell-bg-color: #FFFFFF;
+    --cell-revealed-bg-color: #e0e0e0;
+    --cell-flagged-icon-color: #f44336;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #efefef;
+    background: #f5f5f5;
 }

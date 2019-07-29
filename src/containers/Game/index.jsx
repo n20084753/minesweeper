@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import './game.scss';
 
-import Header from '../../components/Header';
 import Cell from './Cell';
+import Header from '../../components/Header';
 import GridCell from '../../components/GridCell';
 
 const GAME_STATUS = {
@@ -24,7 +24,7 @@ class Game extends Component {
         timer: 0,
         grid: [],
         revealedCount: 0,
-        result: 0,
+        result: 0, // 0 - lose  | 1 - win
     }
 
     componentDidMount() {
@@ -32,7 +32,8 @@ class Game extends Component {
     }
 
     componentWillUnmount = () => clearInterval(this.interval)
-
+    
+    // Initializes new game when changing levels or trying again
     startFreshGame(level) {
         let grid = Array.from(Array(+level), () => new Array(+level));
         this.populateGrid(grid);
@@ -44,13 +45,19 @@ class Game extends Component {
             timer: 0,
             grid: grid,
             revealedCount: 0,
+            result: 0
         });
-
+        
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
+        
         this.interval = setInterval(() => {
             this.setState({ timer: this.state.timer + 1 });
-        }, 1000);        
+        }, 1000);
     }
 
+    // Initializes the gird with cells
     populateGrid = (grid) => {
         for (let i = 0; i < grid.length; i++) {
             for (let j = 0; j < grid[i].length; j++) {
@@ -59,6 +66,7 @@ class Game extends Component {
         }
     }
 
+    // Sets (level) mines or bombs randomly in the grid
     populateBombs = (grid) => {
         var options = [];
         for (let i = 0; i < grid.length; i++) {
@@ -77,6 +85,7 @@ class Game extends Component {
         }
     }
 
+    // Updates the cell's neighbour count based on number of mines that surrounding it
     countBombs = (grid) => {
         let rowLength = grid.length;
         let colLength = grid[0].length;
@@ -105,6 +114,7 @@ class Game extends Component {
         }
     }
 
+    // Gets the number of revealed cells in the grid
     getRevealedCellsCount = () => {
         let grid = this.state.grid;
         let revealed = 0;
@@ -119,6 +129,7 @@ class Game extends Component {
         return revealed;
     }
 
+    // Handles the level dropdown onChange event, Updates game level
     onLevelChange = (event) => {
         this.startFreshGame(event.target.value);
     }
@@ -126,14 +137,16 @@ class Game extends Component {
     // Updates the gameStatus to INITIAL and resets the result to default
     resetGame = () => this.startFreshGame(this.state.level)
     
+    // Win state when all the non mine or bomb areas are revelaed
     finished = () => {
         clearInterval(this.interval);
         this.setState({
             gameStatus: GAME_STATUS.FINISHED,
-            result: 1            
+            result: 1
         });
     }
 
+    // When user steps on the mone or bomb
     gameOver = () => {
         let grid = this.state.grid;
 
@@ -151,6 +164,7 @@ class Game extends Component {
         clearInterval(this.interval);
     }
 
+    // Handles the click on cell
     revealCell = (row, col) => {
         let grid = this.state.grid;
 
@@ -166,8 +180,6 @@ class Game extends Component {
         
         let level = this.state.level;
         let revealedCount = this.getRevealedCellsCount();
-
-        console.log((level * level) - revealedCount, level);
         
         if (((level * level) - revealedCount) === level) {
             this.finished();            
@@ -179,6 +191,7 @@ class Game extends Component {
         });
     }
 
+    // Handles the right click on the cell, marks the cell as flagged
     toggleFlag = (e, row, col) => {
         e.preventDefault();
         let grid = this.state.grid;
@@ -186,6 +199,14 @@ class Game extends Component {
         grid[row][col].flagged = !grid[row][col].flagged;
 
         this.setState({ grid: grid });
+    }
+
+    // Formats the timer to mm:ss time format
+    formattedTime = (timer) => {
+        let min = Math.floor(timer / 60) + "";
+        let sec = (timer - min * 60) + "";
+
+        return `${min.padStart(2, '0')}:${sec.padStart(2, '0')}`;
     }
 
     render() {
@@ -212,7 +233,7 @@ class Game extends Component {
             <React.Fragment>
                 <div className="game-container ui segment">
                     <Header 
-                        timer={this.state.timer}
+                        timer={this.formattedTime(this.state.timer)}
                         level={this.state.level}
                         levels={LEVEL}
                         onLevelChange={this.onLevelChange}
@@ -230,7 +251,7 @@ class Game extends Component {
                                         this.state.result ? 
                                             (
                                                 <React.Fragment>
-                                                    <p>{this.state.timer}</p>
+                                                    <p>{this.formattedTime(this.state.timer)}</p>
                                                     <p>Congrats</p>
                                                 </React.Fragment>
                                             ) : 
